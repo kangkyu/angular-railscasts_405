@@ -5,16 +5,11 @@
 app = angular.module("Raffler", ["ngResource"])
 
 app.controller('RaffleCtrl', ($scope, $resource) ->
-  Entry = $resource("/entries/:id", {id: "@id"},
-  {
-   get:    {method: 'GET'},
-   save:   {method: 'POST'},
-   query:  {method: 'GET', isArray: true},
-   remove: {method: 'DELETE'},
-   delete: {method: 'DELETE'}
-   update: {method: "PUT"}
-  })
-  $scope.entries = Entry.query()
+  $scope.entries = [
+    {name: "Larry"}
+    {name: "Curly"}
+    {name: "Moe"}
+  ]
 
   $scope.addEntry = ->
     $scope.entries.push($scope.newEntry)
