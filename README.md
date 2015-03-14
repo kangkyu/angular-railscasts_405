@@ -29,7 +29,7 @@ bundle install
 <html ng-app>
 ```
 
-###ng-controller
+###ng-controller, ng-repeat
 ```
 app = angular.module("Raffler", [])
 
@@ -44,7 +44,6 @@ app.controller('RaffleCtrl', ($scope) ->
 <html ng-app="Raffler">
 
 <div ng-controller="RaffleCtrl">
-  <form> ... </form>
   
   <ul>
     <li ng-repeat="entry in entries">
@@ -66,7 +65,7 @@ app.controller('RaffleCtrl', ($scope) ->
     $scope.newEntry = {}
 ```
 
-###ng-click
+###ng-click, ng-show
 ```
 <button ng-click="drawWinner()">Draw Winner</button>
 
@@ -85,15 +84,20 @@ $scope.drawWinner = ->
 $scope.drawWinner = ->
   entry = $scope.entries[Math.floor(Math.random() * $scope.entries.length)]
   entry.winner = true
-  $scope.lastWinner = entry
++  $scope.lastWinner = entry
 
 <li ng-repeat="entry in entries">
   {{entry.name}}
   <span ng-show="entry.winner" ng-class="{highlight: entry == lastWinner}" class="winner">WINNER</span>
 </li>
+
+.highlight {
+  font-weight: bold;
+  color: Red;
+}
 ```
 
-###random pick out of didn't win yet
+###random pick out of those didn't win yet
 ```
   $scope.drawWinner = ->
     pool = []
