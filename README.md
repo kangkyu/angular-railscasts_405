@@ -17,7 +17,6 @@ bundle install
 + //= require angular
 - //= require jquery
 - //= require jquery_ujs
-
 ```
 
 ###ng-model
@@ -28,16 +27,9 @@ bundle install
 {{newEntry.name}}
 
 <html ng-app>
-
-<div ng-controller="RaffleCtrl">
-  <form>
-  ...
-  </form>
-</div>
-
-<html ng-app="Raffler">
 ```
 
+###ng-controller
 ```
 app = angular.module("Raffler", [])
 
@@ -49,11 +41,17 @@ app.controller('RaffleCtrl', ($scope) ->
   ]
 )
 
-<ul>
-  <li ng-repeat="entry in entries">
-    {{entry.name}}
-  </li>
-</ul>
+<html ng-app="Raffler">
+
+<div ng-controller="RaffleCtrl">
+  <form> ... </form>
+  
+  <ul>
+    <li ng-repeat="entry in entries">
+      {{entry.name}}
+    </li>
+  </ul>
+</div>
 ```
 
 ###ng-submit
