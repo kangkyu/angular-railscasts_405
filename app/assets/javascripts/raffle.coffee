@@ -4,11 +4,11 @@
 
 app = angular.module("Raffler", ['ngResource'])
 
-app.factory("Entry", ["$resource", ($resource) ->
+app.factory "Entry", ["$resource", ($resource) ->
   $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
-])
+]
 
-app.controller('RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
+app.controller 'RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
 
   $scope.entries = Entry.query()
 
@@ -26,4 +26,4 @@ app.controller('RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
       entry.winner = true
       entry.$update()
       $scope.lastWinner = entry
-])
+]
