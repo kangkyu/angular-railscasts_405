@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'angularjs-rails', '~> 1.3.14'
 gem 'responders', '~> 2.0'
-gem 'rails-api', '~> 0.3.1'
 
 
 
