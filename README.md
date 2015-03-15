@@ -109,11 +109,12 @@ $scope.drawWinner = ->
       $scope.lastWinner = entry
 ```
 
+###Rails part
 ```
-rails g resource entry name
+rails g resource entry name winner:boolean
 ```
 
-for `respond_with` and `respond_to` on controller class, add gem `responders`. and use strong parameters for create & update action  
+for `respond_with` and `respond_to` on controller class, add `responders` gem. and use strong parameters for create & update action
 
 ```
 gem 'responders', '~> 2.0'
@@ -123,7 +124,7 @@ And there's CORS, CSRF, skip authenticity token for now. (localhost is not a dif
 
 ```
 class EntriesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
++  skip_before_filter :verify_authenticity_token
   respond_to :json
 
   def index
