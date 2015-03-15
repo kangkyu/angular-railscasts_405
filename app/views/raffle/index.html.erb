@@ -1,6 +1,4 @@
-<h1>Raffle#index</h1>
-<p>Find me in app/views/raffle/index.html.erb</p>
-
+<h1>Raffler</h1>
 
 <div ng-controller="RaffleCtrl">
   <form ng-submit="addEntry()">
@@ -10,7 +8,7 @@
   <ul>
     <li ng-repeat="entry in entries">
       {{entry.name}}
-      <span ng-show="entry.winner" ng-class="{highlight: lastWinner == entry}">WINNER</span>
+      <span class="winner" ng-show="entry.winner" ng-class="{highlight: lastWinner == entry}">WINNER</span>
     </li>
   </ul>
 

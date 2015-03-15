@@ -187,3 +187,15 @@ and winner status update
 -    params.require("entry").permit("name")
 +    params.require("entry").permit("name", "winner")
 ```
+
+use `Entry` as service like...
+
+```
+app.factory "Entry", ["$resource", ($resource) ->
+  $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.controller 'RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
+```
+
+Railscasts Source Code [https://github.com/railscasts/405-angularjs](https://github.com/railscasts/405-angularjs)
