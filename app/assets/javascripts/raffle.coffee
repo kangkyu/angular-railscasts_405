@@ -2,17 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module("Raffler", [])
+app = angular.module("Raffler", ['ngResource'])
 
-app.controller('RaffleCtrl', ($scope) ->
-  $scope.entries = [
-    {name: "Larry"}
-    {name: "Curly"}
-    {name: "Moe"}
-  ]
+app.controller('RaffleCtrl', ["$scope", "$resource", ($scope, $resource) ->
+  Entry = $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+  $scope.entries = Entry.query()
 
   $scope.addEntry = ->
-    $scope.entries.push($scope.newEntry)
+    entry = Entry.save($scope.newEntry)
+    $scope.entries.push(entry)
     $scope.newEntry = {}
 
   $scope.drawWinner = ->
@@ -23,4 +21,4 @@ app.controller('RaffleCtrl', ($scope) ->
       entry = pool[Math.floor(Math.random() * pool.length)]
       entry.winner = true
       $scope.lastWinner = entry
-)
+])
