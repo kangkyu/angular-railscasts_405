@@ -4,8 +4,12 @@
 
 app = angular.module("Raffler", ['ngResource'])
 
-app.controller('RaffleCtrl', ["$scope", "$resource", ($scope, $resource) ->
-  Entry = $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+app.factory("Entry", ["$resource", ($resource) ->
+  $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+])
+
+app.controller('RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
+
   $scope.entries = Entry.query()
 
   $scope.addEntry = ->
