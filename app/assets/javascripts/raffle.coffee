@@ -20,5 +20,6 @@ app.controller('RaffleCtrl', ["$scope", "$resource", ($scope, $resource) ->
     if pool.length > 0
       entry = pool[Math.floor(Math.random() * pool.length)]
       entry.winner = true
+      entry.$update()
       $scope.lastWinner = entry
 ])
