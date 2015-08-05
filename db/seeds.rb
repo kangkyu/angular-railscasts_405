@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Entry.delete_all
 Entry.create!(name: "Matz")
 Entry.create!(name: "DHH")
 Entry.create!(name: "Jose Valim")
