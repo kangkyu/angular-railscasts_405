@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 gem 'angularjs-rails', '~> 1.3.14'
 gem 'responders', '~> 2.0'
