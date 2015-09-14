@@ -22,4 +22,9 @@ app.controller 'RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
       entry.winner = true
       entry.$update()
       $scope.lastWinner = entry
+
+  $scope.clearWinner = ->
+    angular.forEach $scope.entries, (entry) ->
+      entry.winner = false
+      entry.$update()
 ]
