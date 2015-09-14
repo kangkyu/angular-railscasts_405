@@ -200,3 +200,17 @@ app.controller 'RaffleCtrl', ["$scope", "Entry", ($scope, Entry) ->
 ```
 
 Railscasts Source Code [https://github.com/railscasts/405-angularjs](https://github.com/railscasts/405-angularjs)
+
+--
+
+##customize - add a clear button
+
+###ng-click
+```
+<button ng-click="clearWinner()">Clear</button>
+
+$scope.clearWinner = ->
+  angular.forEach $scope.entries, (entry) ->
+    entry.winner = false
+    entry.$update()
+```
