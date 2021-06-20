@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.7'
 
 gem 'angularjs-rails', '~> 1.3.14'
 gem 'responders', '~> 2.0'
@@ -7,14 +7,14 @@ gem 'responders', '~> 2.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11.3'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.0'
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.21'
   gem 'rails_12factor'
 end
 
